@@ -1,5 +1,6 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {EmbeddedDateTimes} from "./commonEmbedded/EmbeddedDateTimes";
+import {User} from "./User";
 
 @Entity({
   name: "diary_entry",
@@ -17,4 +18,9 @@ export class DiaryEntry {
 
   @Column(() => EmbeddedDateTimes, {prefix: ""})
   date?: EmbeddedDateTimes
+
+  @ManyToOne(() => User, (user) => user.diaryEntries, {
+    onDelete: "CASCADE"
+  })
+  user?: User
 }
