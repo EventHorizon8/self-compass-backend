@@ -9,10 +9,15 @@ export class User {
     @Column()
     name?: string
 
-    @Column()
+    @Column({
+        // Do not select password by default
+        select: false,
+    })
     password?: string
 
-    @Column()
+    @Column({
+        unique: true,
+    })
     email?: string
 
 }
