@@ -1,0 +1,20 @@
+services:
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_PASSWORD: ChangeMe
+      POSTGRES_USER: app
+    ports:
+      - "5432:5432"
+    networks:
+      - project-dev
+    volumes:
+      - database_data:/var/lib/postgresql/data:rw
+
+networks:
+  project-dev:
+    driver: bridge
+
+volumes:
+  database_data:

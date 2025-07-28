@@ -1,8 +1,11 @@
 # JetBrains IDEs
-/.idea
+.idea
+.DS_Store
+# VS Code
+.vscode
 
 # node_modules
-/node_modules
+node_modules
 
 # environment variables
 .env
@@ -10,4 +13,9 @@
 .env.prod
 
 # Output Dir
-/dist
+dist
+
+# Temp files
+tmp
+temp
+
